@@ -1,0 +1,18 @@
+CPP = gcc
+
+aOUT = main.o 
+bOUT = bprogram.o SmartAlloc.o
+
+a.out: $(aOUT)
+	$(CPP) $(aOUT) -o a.out
+	
+b.out: $(bOUT)
+	$(CPP) $(bOUT) -o b.out
+	
+main.o: main.c
+	$(CPP) -c main.c header.h
+	
+bprogram.o: bprogram.c
+	$(CPP) -c bprogram.c SmartAlloc.c SmartAlloc.h
+clean:
+	rm *.gch
